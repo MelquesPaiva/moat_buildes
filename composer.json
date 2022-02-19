@@ -1,0 +1,34 @@
+{
+    "name": "melquespaiva/moat_buildes",
+    "description": "Music collection app",
+    "license": "MIT",
+    "keywords": [
+        "MelquesPaiva"
+    ],
+    "authors": [
+        {
+            "name": "Melques Santos Paiva",
+            "email": "melque1703@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "coffeecode/router": "^1.0",
+        "ext-json": "*",
+        "ext-curl": "*",
+        "firebase/php-jwt": "5.*",
+        "league/plates": "v4.0.0-alpha",
+        "melquespaiva/rest-response": "^1.0",
+        "php": "^7.4",
+        "vlucas/phpdotenv": "5.*"
+    },
+    "autoload": {
+        "files": [
+            "src/Boot/Config.php",
+            "src/Boot/Helpers.php"
+        ],
+        "psr-4": {
+            "Source\\": "src/"
+        }
+    }
+}

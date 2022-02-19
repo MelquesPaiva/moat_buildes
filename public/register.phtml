@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,user-scalable=0"/>
+
+    <?= $head; ?>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    
+    <link rel="stylesheet" href="<?= asset(CONF_PACK_NODE . "/bootstrap/dist/css/bootstrap.min.css"); ?>">
+    <link rel="stylesheet" href="<?= asset(CONF_PACK_NODE . "/@fortawesome/fontawesome-free/css/all.min.css"); ?>">
+    <link rel="stylesheet" href="<?= asset(CONF_PACK_NODE . "/toastr/build/toastr.min.css"); ?>">
+    <link rel="stylesheet" href="<?= asset("/public/assets/css/style.css");?>">
+    <link rel="stylesheet" href="<?= asset("/public/assets/css/boot.css");?>">
+</head>
+</html>
+<body class="signin-page">
+    <div class="default-load">
+        <div class="default-load-box">
+            <div class="default-load-box-circle"></div>
+            <p class="font-weight-bold color-white">Aguarde, carregando...</p>
+        </div>
+    </div>
+
+    <main class="container" id="mainSignIn">
+        <section class="row py-5 mt-4 align-items-center">
+
+            <div class="col-12 pr-12 mb-5">
+                <h1>Create an Account</h1>
+                <p class="font-italic text-muted mb-0">Create your account to access the application.</p>
+            </div>
+
+            <article class="col-12">
+                <form v-on:submit.prevent="register">
+                    <article class="row">
+
+                        <!-- Full Name -->
+                        <article class="input-group col-lg-6 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-user text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="fullName" type="text" name="fullName" placeholder="Full Name"
+                                class="form-control bg-white border-left-0 border-md"
+                                mandatory="Full Name">
+                        </article>
+
+                        <!-- User Name -->
+                        <article class="input-group col-lg-6 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-user text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="userName" type="text" name="userName" placeholder="User Name"
+                                class="form-control bg-white border-left-0 border-md"
+                                mandatory="User Name">
+                        </article>
+
+                        <!-- Password -->
+                        <div class="input-group col-lg-6 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-lock text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="password" type="password" name="password" placeholder="Password"
+                                class="form-control bg-white border-left-0 border-md"
+                                mandatory="Password">
+                        </div>
+
+                        <!-- Password Confirmation -->
+                        <article class="input-group col-lg-6 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-lock text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="passwordConfirmation" type="password" name="passwordConfirmation" placeholder="Confirm Password"
+                                class="form-control bg-white border-left-0 border-md"
+                                mandatory="Confirm Password">
+                        </article>
+
+                        <!-- Submit Button -->
+                        <article class="form-group col-lg-12 mx-auto mb-0">
+                            <button type="submit" class="btn btn-primary btn-block py-2">
+                                <span class="font-weight-bold">Create your account</span>
+                            </button>
+                        </article>
+
+                        <!-- Divider Text -->
+                        <article class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                            <div class="border-bottom w-100 ml-5"></div>
+                            <span class="px-2 small text-muted font-weight-bold text-muted">OR</span>
+                            <div class="border-bottom w-100 mr-5"></div>
+                        </article>
+
+                        <!-- Already Registered -->
+                        <article class="text-center w-100">
+                            <p class="text-muted font-weight-bold">Already Registered? <a href="<?= url("/login"); ?>" class="text-primary ml-2">Login</a></p>
+                        </article>
+
+                    </article>
+                </form>
+            </article>
+        </section>
+    </main>
+    <script>
+        const host = '<?= url(); ?>';
+    </script>
+    <script type="text/javascript" src="<?= asset('/node_modules/jquery/dist/jquery.min.js')?>"></script>
+    <script type="text/javascript" src="<?= asset('/node_modules/vue/dist/vue.min.js')?>"></script>
+    <script type="text/javascript" src="<?= asset('/node_modules/axios/dist/axios.min.js')?>"></script>
+    <script type="text/javascript" src="<?= asset('/node_modules/toastr/build/toastr.min.js')?>"></script>
+    <script type="text/javascript" src="<?= asset('public/assets/js/signIn.js'); ?>"></script>
+</body>
+</html>
