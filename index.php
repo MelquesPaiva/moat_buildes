@@ -30,10 +30,11 @@ $route->get("/{errcode}", "Web:error");
  */
 
 $route->group(null);
-$route->get('/login', 'Web:login');
+$route->get('/', 'Web:login');
 $route->get('/register', 'Web:register');
 $route->get('/app', 'App:appPage');
 $route->get('/session', 'App:session');
+$route->get('/logout', 'App:logout');
 
 /**
  * ERROR REDIRECT

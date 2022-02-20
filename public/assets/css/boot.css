@@ -356,6 +356,10 @@
     border-bottom: 1px solid var(--gray-200);
 }
 
+.border-bottom-gray-500 {
+    border-bottom: 1px solid var(--gray-500);
+}
+
 .border-top-gray-200 {
     border-top: 1px solid var(--gray-200);
 }
@@ -431,3 +435,22 @@
 .section-header button[type=submit] {
     margin-left: 1rem;
 }
+
+/**
+ * VUE TRANSITIONS
+ */
+
+.slide-enter-active,
+.slide-leave-active {
+    transition: opacity 0.25s, transform 0.25s;
+}
+
+.slide-enter,
+.slide-leave-to {
+    opacity: 0;
+    transform: translateY(-30%);
+}
+ 
+/**
+ * END VUE TRANSITIONS
+ */

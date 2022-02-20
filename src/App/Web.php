@@ -18,6 +18,11 @@ class Web extends Controller
         parent::__construct();
     }
 
+    /**
+     * Render view from login page
+     *
+     * @return void
+     */
     public function login(): void
     {
         echo $this->view->render('login', [
@@ -25,6 +30,11 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * Render view from register page
+     *
+     * @return void
+     */
     public function register(): void
     {
         echo $this->view->render('register', [

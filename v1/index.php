@@ -34,13 +34,19 @@ $route->group(null);
 $route->post("/login", "Sign:login");
 $route->post("/register", "Sign:register");
 
+// ALBUM ROUTES
 $route->group("/album");
 
 $route->get("/", "Album:getAll");
 $route->post("/", "Album:save");
 $route->get("/{id}", "Album:getById");
 $route->put("/{id}", "Album:update");
-$route->delete("/{id}", "Album:update");
+$route->delete("/{id}", "Album:delete");
+
+// ARTIST ROUTES
+$route->group("/artist");
+$route->get("/", "Artist:getAll");
+$route->get("/{id}", "Artist:getById");
 
 $route->dispatch();
 

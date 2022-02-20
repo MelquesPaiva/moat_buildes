@@ -17,7 +17,7 @@ class Album extends AbstractApi
         parent::__construct();
         if ($this->method() == 'DELETE' && $this->user->role == 1) {
             $this->response->actionForbidden("You don't have enough permissions to delete a album");
-            return;
+            exit;
         }
     }
 
