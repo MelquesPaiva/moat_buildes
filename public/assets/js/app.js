@@ -118,22 +118,7 @@ const artistComponent = {
         let self = this;
 
         self.$root.titlePage = "Artists";
-
-        console.log('teste');
-
-        for (var i in self.$root.artistList) {
-            console.log(self.$root.artistList[i]);
-        }
-
-        axios({
-            method: 'GET',
-            url: "https://moat.ai/api/task/"
-        }).then(function(response) {
-            console.log(response);
-        }).catch(function(error) {
-            console.log(error);
-        });
-
+        self.$root.generateArtistList();
     },
     template: `
         <div>
@@ -543,6 +528,19 @@ const app = new Vue({
                 toastr.error(err.response.data.meta.error.message);
                 self.load(false);
             });
+        },
+        generateArtistList: async function() {
+            let self = this;
+
+            self.load();
+
+            await axios.get("https://moat.ai/api/task/").then(function(response) {
+                self.$root.artistList = response.data;
+            }).catch(function(error) {
+                toastr.error('It was not possible to recover ther artist list', 'Artist', toastrOptions);
+            });
+            
+            self.load(false);
         },
         load: function(loading = true) {
             const defaultLoad = $('.default-load');
