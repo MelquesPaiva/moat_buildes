@@ -121,6 +121,10 @@ const artistComponent = {
 
         console.log('teste');
 
+        for (var i in self.$root.artistList) {
+            console.log(self.$root.artistList[i]);
+        }
+
         axios({
             method: 'GET',
             url: "https://moat.ai/api/task/"
@@ -145,13 +149,13 @@ const artistComponent = {
             <main class="container">
                 <section class="row border-bottom-light-gray py-3 text-light-blue" v-for="artist in $root.artistList">
                     <article class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
-                        ID: {{ artist.id }}
+                        ID: {{ artist[0].id }}
                     </article>
                     <article class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
-                        Name: {{ artist.name }}
+                        Name: {{ artist[0].name }}
                     </article>
                     <article class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
-                        <i class="fab fa-twitter"></i>: {{ artist.twitter }}
+                        <i class="fab fa-twitter"></i>: {{ artist[0].twitter }}
                     </article>
                 </section>
             </main>
@@ -348,8 +352,8 @@ const formAlbum = `
                 <select id="artist" name="artist" class="form-control bg-white border-left-0 border-md"
                     mandatory="Artist">
                     <option value="">Select a artist</option>
-                    <option v-for="artist in $root.artistList"  v-bind:value="artist.name">
-                        {{ artist.name }}
+                    <option v-for="artist in $root.artistList"  v-bind:value="artist[0].name">
+                        {{ artist[0].name }}
                     </option>
                 </select>
             </article>
@@ -469,7 +473,7 @@ const router = new VueRouter({
             name: 'home',
             children: [
                 {
-                    path: 'artist',
+                    path: '',
                     component: artistComponent,
                     name: 'artist'
                 },
@@ -499,18 +503,21 @@ const app = new Vue({
     data: {
         albumList: [],
         artistList: [
-            {
-                "id": 1,
-                "twitter": "@justinbieber",
-                "name": "Justin Bieber"
-            },
-            {
-                "id": 2,
-                "twitter": "@katyperry",
-                "name": "Katy Perry"
-            }
+            [
+                {
+                    "id": 1,
+                    "twitter": "@justinbieber",
+                    "name": "Justin Bieber"
+                }
+            ],
+            [
+                {
+                    "id": 2,
+                    "twitter": "@katyperry",
+                    "name": "Katy Perry"
+                }
+            ]
         ],
-        active: true,
         titlePage: ''
     },
     router,

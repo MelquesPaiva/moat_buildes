@@ -275,7 +275,7 @@ select.form-control {
 }
 
 .sidebar {
-    flex-basis: 25%;
+    flex-basis: 20%;
     background: #fff;
     padding: 1rem;
     box-shadow: 0 0 4px 0 rgb(0 0 0 / 30%);
@@ -327,7 +327,7 @@ select.form-control {
 }
 
 .app-container .app-content .app-main {
-    flex-basis: 65%;
+    flex-basis: 80%;
     padding-left: 1.5rem;
     width: 100%;
 }
