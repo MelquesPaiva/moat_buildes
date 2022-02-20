@@ -6,7 +6,6 @@
 *.exe
 *.o
 *.so
-*.lock
 
 # Folder to ignore #
 vendor/
