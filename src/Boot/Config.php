@@ -4,7 +4,7 @@
  * PROJECT URLs
  */
 define("CONF_URL_TEST", "https://www.localhost/moat_buildes");
-define("CONF_URL_BASE", "https://moatbuilders.herokuapp.com");
+define("CONF_URL_BASE", "https://moatbuilders.herokuapp.com/");
 
 /**
  * DATES
