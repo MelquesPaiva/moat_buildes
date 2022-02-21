@@ -6,10 +6,18 @@
  */
 function url(string $path = null): string
 {
-    if ($path) {
-        return CONF_URL_TEST . "/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
+    if ($_ENV['environment'] == "localhost") {
+        if ($path) {
+            return CONF_URL_TEST . "/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
+        }
+        return CONF_URL_TEST . "/";
     }
-    return CONF_URL_TEST . "/";
+
+    if ($path) {
+        return CONF_URL_BASE . "/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
+    }
+
+    return CONF_URL_BASE;
 }
 
 /**
@@ -68,11 +76,7 @@ function time_zone(): DateTimeZone
  */
 function asset(string $path = null): string
 {
-    if ($path) {
-        return CONF_URL_TEST . "/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
-    }
-
-    return CONF_URL_TEST;
+    return url($path);
 }
 
 

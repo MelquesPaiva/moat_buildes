@@ -7,6 +7,10 @@
 *.o
 *.so
 
+# Files #
+###################
+*.env
+
 # Folder to ignore #
 vendor/
 node_modules/
