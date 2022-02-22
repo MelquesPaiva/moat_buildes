@@ -41,16 +41,18 @@ class Connect
      */
     public static function getInstance(): ?PDO
     {
+        $connectionConfig = connection_data();
+
         if (empty(self::$instance)) {
             try {
-                self::$instance = new \PDO(
-                    "mysql:host=127.0.0.1;dbname=moat_task",
-                    "root",
-                    "",
+                self::$instance = new PDO(
+                    "mysql:host=" . $connectionConfig['host'] . ";dbname=" . $connectionConfig['dbname'],
+                    $connectionConfig['user'],
+                    $connectionConfig['pass'],
                     self::OPTIONS
                 );
             } catch (PDOException $ex) {
-                self::$fail = $ex;
+                redirect("/ops/problemas");
             }
         }
 

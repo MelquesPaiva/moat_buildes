@@ -37,7 +37,6 @@ const baseCompoment = {
         self.$root.load();
         await axios.get(`${host}session`).then(function (response) {
             self.$root.userSession = response.data.user;
-            console.log(self.$root.userSession);
         });
         self.$root.load(false);
     },

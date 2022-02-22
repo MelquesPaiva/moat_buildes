@@ -43,7 +43,6 @@ const signInApp = new Vue({
         register: function(e) {
             let self = this;
             this.submitForm(e, "v1/register", function(response) {
-                console.log(response);
                 if (response.status === 200 && response.data.data != null) {
                     self.clearForm(e.target);
                     toastr.success(response.data.message, 'User', toastrOptions);

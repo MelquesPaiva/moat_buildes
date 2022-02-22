@@ -150,6 +150,12 @@ function passwd_rehash(string $hash): bool
 
 
 /**
+ * ###################
+ * ##### MESSAGE #####
+ * ###################
+ */
+
+/**
  * @return string|null
  */
 function flash(): ?string
@@ -160,4 +166,32 @@ function flash(): ?string
     }
 
     return null;
+}
+
+
+/**
+ * ##############
+ * ##### DB #####
+ * ##############
+ */
+
+function connection_data(): array
+{
+    if ($_ENV['environment'] == "localhost") {
+        return [
+            'host' => '127.0.0.1',
+            'user' => 'root',
+            'pass' => '',
+            'dbname' => 'moat_task'
+        ];
+    }
+
+    $clearDb = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+    return [
+        'host' => $clearDb["host"],
+        'user' => $clearDb["user"],
+        'pass' => $clearDb["pass"],
+        'dbname' => substr($clearDb["path"], 1)
+    ];
 }
